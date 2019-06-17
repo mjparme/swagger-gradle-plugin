@@ -4,7 +4,7 @@ import com.benjaminsproule.swagger.gradleplugin.model.SwaggerExtension
 import groovy.json.JsonSlurper
 import org.apache.commons.lang3.RandomStringUtils
 import org.gradle.api.Project
-import org.gradle.api.internal.ClosureBackedAction
+import org.gradle.util.ClosureBackedAction
 import org.gradle.api.plugins.JavaPlugin
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.After
@@ -19,7 +19,7 @@ class JaxrsPluginTest {
     @Before
     void setUp() {
         project = ProjectBuilder.builder().build()
-        project.pluginManager.apply 'com.benjaminsproule.swagger'
+        project.pluginManager.apply 'com.d3banking.swagger'
     }
 
     @After
@@ -60,8 +60,8 @@ class JaxrsPluginTest {
             }
         ))
 
-        project.tasks.generateSwaggerDocumentation.execute()
-
+        project.tasks.generateSwaggerDocumentation.finalizedBy("createSwaggerArtifact")
+        
         def swaggerFile = new File("${expectedSwaggerDirectory}/swagger.json")
         assertSwaggerJson(swaggerFile)
     }

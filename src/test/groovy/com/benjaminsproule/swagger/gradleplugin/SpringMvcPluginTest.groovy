@@ -4,9 +4,9 @@ import com.benjaminsproule.swagger.gradleplugin.model.SwaggerExtension
 import groovy.json.JsonSlurper
 import org.apache.commons.lang3.RandomStringUtils
 import org.gradle.api.Project
-import org.gradle.api.internal.ClosureBackedAction
 import org.gradle.api.plugins.JavaPlugin
 import org.gradle.testfixtures.ProjectBuilder
+import org.gradle.util.ClosureBackedAction
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -19,7 +19,7 @@ class SpringMvcPluginTest {
     @Before
     void setUp() {
         project = ProjectBuilder.builder().build()
-        project.pluginManager.apply 'com.benjaminsproule.swagger'
+        project.pluginManager.apply 'com.d3banking.swagger'
     }
 
     @After

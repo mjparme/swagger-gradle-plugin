@@ -87,8 +87,6 @@ class GenerateSwaggerDocsTask extends DefaultTask {
             project.artifacts {
                 archives project.tasks.createSwaggerArtifact
             }
-
-            project.tasks.createSwaggerArtifact.execute()
         }
     }
 }

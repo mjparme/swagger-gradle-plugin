@@ -3,7 +3,7 @@ package com.benjaminsproule.swagger.gradleplugin
 import com.benjaminsproule.swagger.gradleplugin.model.SwaggerExtension
 import org.apache.commons.text.RandomStringGenerator
 import org.gradle.api.Project
-import org.gradle.api.internal.ClosureBackedAction
+import org.gradle.util.ClosureBackedAction
 import org.gradle.api.plugins.JavaPlugin
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.After
@@ -16,7 +16,7 @@ class ApiDocsPluginTest {
     @Before
     void setUp() {
         project = ProjectBuilder.builder().build()
-        project.pluginManager.apply 'com.benjaminsproule.swagger'
+        project.pluginManager.apply 'com.d3banking.swagger'
     }
 
     @After

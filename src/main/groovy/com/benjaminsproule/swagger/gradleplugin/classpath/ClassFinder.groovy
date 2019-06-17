@@ -66,7 +66,12 @@ class ClassFinder {
                 urls.add(it.toURI().toURL())
             }
         } else {
-            urls.add(project.sourceSets.main.output.classesDir.toURI().toURL())
+            def files = project.sourceSets.main.output.classesDirs.getFiles()
+            LOG.debug("Files in classesDirs: ${files} ${files.getClass().getSimpleName()}")
+            files.each {
+                LOG.debug("Name: $it ${it.getClass().getName()}")
+                urls.add(it.toURI().toURL())
+            }
         }
 
         return new URLClassLoader(urls as URL[], getClass().getClassLoader())
